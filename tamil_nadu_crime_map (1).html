@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tamil Nadu Crime Hotspot Map</title>
+
+<!-- Leaflet CSS inline -->
+<style>
+.leaflet-pane,.leaflet-tile,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile-container,.leaflet-pane>svg,.leaflet-pane>canvas,.leaflet-zoom-box,.leaflet-image-layer,.leaflet-layer{position:absolute;left:0;top:0}.leaflet-container{overflow:hidden}.leaflet-tile,.leaflet-marker-icon,.leaflet-marker-shadow{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-user-drag:none}.leaflet-tile::selection{background:transparent}.leaflet-safari .leaflet-tile{image-rendering:-webkit-optimize-contrast}.leaflet-safari .leaflet-tile-container{width:1600px;height:1600px;-webkit-transform-origin:0 0}.leaflet-marker-icon,.leaflet-marker-shadow{display:block}.leaflet-container .leaflet-overlay-pane svg{max-width:none!important;max-height:none!important}.leaflet-container .leaflet-marker-pane img,.leaflet-container .leaflet-shadow-pane img,.leaflet-container .leaflet-tile-pane img,.leaflet-container img.leaflet-image-layer,.leaflet-container .leaflet-tile{max-width:none!important;max-height:none!important;width:auto;padding:0}.leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter}.leaflet-container.leaflet-touch-zoom{-ms-touch-action:pan-x pan-y;touch-action:pan-x pan-y}.leaflet-container.leaflet-touch-drag{-ms-touch-action:pinch-zoom;touch-action:none;touch-action:pinch-zoom}.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{-ms-touch-action:none;touch-action:none}.leaflet-container{-webkit-tap-highlight-color:transparent}.leaflet-container a{-webkit-tap-highlight-color:rgba(51,181,229,.4)}.leaflet-tile{filter:inherit;visibility:hidden}.leaflet-tile-loaded{visibility:inherit}.leaflet-zoom-box{width:0;height:0;-moz-box-sizing:border-box;box-sizing:border-box;z-index:800}.leaflet-overlay-pane svg{-moz-user-select:none}.leaflet-pane{z-index:400}.leaflet-tile-pane{z-index:200}.leaflet-overlay-pane{z-index:400}.leaflet-shadow-pane{z-index:500}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}.leaflet-map-pane canvas{z-index:100}.leaflet-map-pane svg{z-index:200}.leaflet-vml-shape{width:1px;height:1px}.lvml{behavior:url(#default#VML);display:inline-block;position:absolute}.leaflet-control{position:relative;z-index:800;pointer-events:visiblePainted;pointer-events:auto}.leaflet-top,.leaflet-bottom{position:absolute;z-index:1000;pointer-events:none}.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}.leaflet-control{float:left;clear:both}.leaflet-right .leaflet-control{float:right}.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}.leaflet-left .leaflet-control{margin-left:10px}.leaflet-right .leaflet-control{margin-right:10px}.leaflet-fade-anim .leaflet-popup{opacity:0;-webkit-transition:opacity .2s linear;-moz-transition:opacity .2s linear;transition:opacity .2s linear}.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{opacity:1}.leaflet-zoom-animated{-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0}svg.leaflet-zoom-animated{will-change:transform}.leaflet-zoom-anim .leaflet-zoom-animated{-webkit-transition:-webkit-transform .25s cubic-bezier(0,0,.25,1);-moz-transition:-moz-transform .25s cubic-bezier(0,0,.25,1);transition:transform .25s cubic-bezier(0,0,.25,1)}.leaflet-zoom-anim .leaflet-tile,.leaflet-pan-anim .leaflet-tile{-webkit-transition:none;-moz-transition:none;transition:none}.leaflet-zoom-anim .leaflet-zoom-animated.leaflet-retrieve-scale{-webkit-transition:none;-moz-transition:none;transition:none}.leaflet-interactive{cursor:pointer}.leaflet-grab{cursor:-webkit-grab;cursor:-moz-grab;cursor:grab}.leaflet-crosshair,.leaflet-crosshair .leaflet-interactive{cursor:crosshair}.leaflet-popup-pane,.leaflet-control{cursor:auto}.leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-grab .leaflet-interactive,.leaflet-dragging .leaflet-marker-draggable{cursor:move;cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-image-layer,.leaflet-pane>svg path,.leaflet-tile-container{pointer-events:none}.leaflet-marker-icon.leaflet-interactive,.leaflet-image-layer.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive,svg.leaflet-image-layer.leaflet-interactive path{pointer-events:visiblePainted;pointer-events:auto}.leaflet-container{background:#ddd;outline-offset:1px}.leaflet-container a{color:#0078a8}.leaflet-container a.leaflet-active{outline:2px solid orange}.leaflet-zoom-box{border:2px dotted #38f;background:rgba(255,255,255,.5)}.leaflet-container{font-family:Helvetica Neue,Arial,Helvetica,sans-serif;font-size:.75rem;font-size:max(.75rem,11px);line-height:1.5}.leaflet-bar{box-shadow:0 1px 5px rgba(0,0,0,.65);border-radius:4px}.leaflet-bar a{background-color:#fff;border-bottom:1px solid #ccc;width:26px;height:26px;line-height:26px;display:block;text-align:center;text-decoration:none;color:black}.leaflet-bar a,.leaflet-control-layers-toggle{background-position:50% 50%;background-repeat:no-repeat;display:block}.leaflet-bar a:hover,.leaflet-bar a:focus{background-color:#f4f4f4}.leaflet-bar a:first-child{border-top-left-radius:4px;border-top-right-radius:4px}.leaflet-bar a:last-child{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-bottom:none}.leaflet-bar a.leaflet-disabled{cursor:default;background-color:#f4f4f4;color:#bbb}.leaflet-touch .leaflet-bar a{width:30px;height:30px;line-height:30px}.leaflet-touch .leaflet-bar a:first-child{border-top-left-radius:2px;border-top-right-radius:2px}.leaflet-touch .leaflet-bar a:last-child{border-bottom-left-radius:2px;border-bottom-right-radius:2px}.leaflet-control-zoom-in,.leaflet-control-zoom-out{font:bold 18px 'Lucida Console',Monaco,monospace;text-indent:1px}.leaflet-touch .leaflet-control-zoom-in{font-size:22px}.leaflet-touch .leaflet-control-zoom-out{font-size:20px}.leaflet-control-layers{box-shadow:0 1px 5px rgba(0,0,0,.4);background:#fff;border-radius:5px}.leaflet-control-layers-toggle{background-image:url(https://unpkg.com/leaflet@1.9.4/dist/images/layers.png);width:36px;height:36px}.leaflet-retina .leaflet-control-layers-toggle{background-image:url(https://unpkg.com/leaflet@1.9.4/dist/images/layers-2x.png);background-size:26px 26px}.leaflet-touch .leaflet-control-layers-toggle{width:44px;height:44px}.leaflet-control-layers .leaflet-control-layers-list,.leaflet-control-layers-expanded .leaflet-control-layers-toggle{display:none}.leaflet-control-layers-expanded .leaflet-control-layers-list{display:block;position:relative}.leaflet-control-layers-expanded{padding:6px 10px 6px 6px;color:#333;background:#fff}.leaflet-control-layers-scrollbar{overflow-y:scroll;overflow-x:hidden;padding-right:5px}.leaflet-control-layers-selector{margin-top:2px;position:relative;top:1px}.leaflet-control-layers label{display:block;font-size:1.08333em}.leaflet-control-layers-separator{height:0;border-top:1px solid #ddd;margin:5px -10px 5px -6px}.leaflet-default-icon-path{background-image:url(https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png)}.leaflet-container .leaflet-control-attribution{background:#fff;background:rgba(255,255,255,.8);margin:0}.leaflet-control-attribution,.leaflet-control-scale-line{padding:0 5px;color:#333;line-height:1.4}.leaflet-control-attribution a{text-decoration:none}.leaflet-control-attribution a:hover,.leaflet-control-attribution a:focus{text-decoration:underline}.leaflet-attribution-flag{display:inline!important;vertical-align:baseline!important;width:1em;height:.6669em}.leaflet-left .leaflet-control-scale{margin-left:5px}.leaflet-bottom .leaflet-control-scale{margin-bottom:5px}.leaflet-control-scale-line{border:2px solid #777;border-top:none;line-height:1.1;padding:2px 5px 1px;white-space:nowrap;-moz-box-sizing:border-box;box-sizing:border-box;background:#fff;text-shadow:1px 1px #fff}.leaflet-control-scale-line:not(:first-child){border-top:2px solid #777;border-bottom:none;margin-top:-2px}.leaflet-control-scale-line:not(:first-child):not(:last-child){border-bottom:2px solid #777}.leaflet-touch .leaflet-control-attribution,.leaflet-touch .leaflet-control-layers,.leaflet-touch .leaflet-bar{box-shadow:none}.leaflet-touch .leaflet-control-layers,.leaflet-touch .leaflet-bar{border:2px solid rgba(0,0,0,.2);background-clip:padding-box}.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}.leaflet-popup-content-wrapper{padding:1px;text-align:left;border-radius:12px}.leaflet-popup-content{margin:13px 24px 13px 20px;line-height:1.3;font-size:1.08333em}.leaflet-popup-content p{margin:1.3em 0}.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-left:-20px;overflow:hidden;pointer-events:none}.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;pointer-events:auto;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:white;color:#333;box-shadow:0 3px 14px rgba(0,0,0,.4)}.leaflet-container a.leaflet-popup-close-button{position:absolute;top:0;right:0;border:none;text-align:center;width:24px;height:24px;font:16px/24px Tahoma,Verdana,sans-serif;color:#757575;text-decoration:none;background:transparent}.leaflet-container a.leaflet-popup-close-button:hover,.leaflet-container a.leaflet-popup-close-button:focus{color:#585858}.leaflet-popup-scrolled{overflow:auto}.leaflet-oldie .leaflet-popup-content-wrapper{-ms-zoom:1}.leaflet-oldie .leaflet-popup-tip{width:24px;-ms-filter:"progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)";filter:progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)}.leaflet-oldie .leaflet-control-zoom,.leaflet-oldie .leaflet-control-layers,.leaflet-oldie .leaflet-popup-content-wrapper,.leaflet-oldie .leaflet-popup-tip{border:1px solid #999}.leaflet-div-icon{background:#fff;border:1px solid #666}.leaflet-tooltip{position:absolute;padding:6px;background-color:#fff;border:1px solid #fff;border-radius:3px;color:#222;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;user-select:none;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.4)}.leaflet-tooltip.leaflet-interactive{cursor:pointer;pointer-events:auto}.leaflet-tooltip-top:before,.leaflet-tooltip-bottom:before,.leaflet-tooltip-left:before,.leaflet-tooltip-right:before{position:absolute;pointer-events:none;border:6px solid transparent;background:transparent;content:""}.leaflet-tooltip-bottom:before{top:0;left:50%;margin-left:-6px;margin-top:-12px;border-bottom-color:#fff}.leaflet-tooltip-top:before{bottom:0;left:50%;margin-left:-6px;margin-bottom:-12px;border-top-color:#fff}.leaflet-tooltip-left:before{top:50%;right:0;margin-top:-6px;margin-right:-12px;border-left-color:#fff}.leaflet-tooltip-right:before{top:50%;left:0;margin-top:-6px;margin-left:-12px;border-right-color:#fff}
+</style>
+
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--border:#30363d;--accent:#f85149;--accent2:#d29922;--text:#e6edf3;--muted:#8b949e;--green:#3fb950;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+
+header{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;background:var(--panel);border-bottom:1px solid var(--border);flex-shrink:0;}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-badge{background:var(--accent);color:white;font-size:11px;font-weight:700;padding:4px 8px;border-radius:4px;letter-spacing:1px;}
+.logo-title{font-size:15px;font-weight:700;}
+.logo-sub{font-size:10px;color:var(--muted);}
+.hdr-stats{display:flex;gap:24px;}
+.hdr-stat{text-align:right;}
+.hdr-stat-val{font-size:17px;font-weight:700;color:var(--accent);font-family:monospace;}
+.hdr-stat-label{font-size:9px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+
+.main{display:flex;flex:1;overflow:hidden;}
+
+.sidebar{width:280px;background:var(--panel);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;flex-shrink:0;}
+.sb-section{padding:12px 14px;border-bottom:1px solid var(--border);}
+.sb-label{font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-family:monospace;margin-bottom:7px;}
+
+input[type=text]{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:8px 11px;color:var(--text);font-size:13px;outline:none;transition:border-color .2s;}
+input[type=text]:focus{border-color:var(--accent);}
+input[type=text]::placeholder{color:var(--muted);}
+
+.dd{position:absolute;top:calc(100% + 3px);left:0;right:0;background:var(--panel);border:1px solid var(--accent);border-radius:4px;max-height:160px;overflow-y:auto;z-index:9999;display:none;}
+.dd.open{display:block;}
+.dd-item{padding:8px 12px;font-size:12px;cursor:pointer;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:7px;}
+.dd-item:hover{background:rgba(248,81,73,.1);color:var(--accent);}
+.dd-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+
+.chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;}
+.chip{padding:3px 8px;border-radius:10px;font-size:10px;font-family:monospace;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .15s;}
+.chip:hover{border-color:var(--accent2);color:var(--accent2);}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+.dist-list{flex:1;overflow-y:auto;padding:6px;}
+.dist-list::-webkit-scrollbar{width:3px;}
+.dist-list::-webkit-scrollbar-thumb{background:var(--border);}
+.list-hdr{font-size:9px;color:var(--muted);letter-spacing:2px;font-family:monospace;padding:5px 8px 3px;}
+.dist-btn{width:100%;display:flex;align-items:center;justify-content:space-between;padding:7px 9px;background:transparent;border:none;border-left:2px solid transparent;border-radius:3px;color:var(--text);font-size:12px;cursor:pointer;transition:all .13s;text-align:left;margin-bottom:1px;}
+.dist-btn:hover{background:rgba(248,81,73,.07);color:var(--accent);}
+.dist-btn.on{background:rgba(248,81,73,.12);color:var(--accent);border-left-color:var(--accent);}
+.badge{font-family:monospace;font-size:10px;color:var(--accent2);background:rgba(210,153,34,.12);padding:1px 5px;border-radius:2px;}
+
+.info-box{padding:12px 14px;border-top:1px solid var(--border);}
+.info-title{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:7px;}
+.info-row{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);font-family:monospace;margin-bottom:3px;}
+.info-row span:last-child{color:var(--text);}
+.no-sel{font-size:11px;color:var(--muted);font-style:italic;}
+.bars{margin-top:8px;}
+.bar-row{margin-bottom:4px;}
+.bar-lbl{display:flex;justify-content:space-between;font-size:9px;color:var(--muted);font-family:monospace;margin-bottom:2px;}
+.bar-track{height:3px;background:var(--border);border-radius:2px;}
+.bar-fill{height:3px;border-radius:2px;transition:width .4s;}
+
+.legend{padding:10px 14px;border-top:1px solid var(--border);}
+.leg-bar{width:100%;height:5px;border-radius:3px;margin-top:5px;background:linear-gradient(to right,#3b82f688,#22c55e88,#eab30888,#ef444488);}
+.leg-ends{display:flex;justify-content:space-between;margin-top:2px;font-size:9px;color:var(--muted);font-family:monospace;}
+
+#map{flex:1;height:100%;min-height:0;}
+
+.overlay{position:absolute;top:14px;right:14px;background:rgba(13,17,23,.93);border:1px solid var(--border);border-radius:6px;padding:12px 15px;z-index:500;min-width:190px;backdrop-filter:blur(8px);}
+.ov-name{font-size:14px;font-weight:700;margin-bottom:2px;}
+.ov-total{font-size:28px;font-weight:700;color:var(--accent);font-family:monospace;line-height:1;}
+.ov-sub{font-size:9px;color:var(--muted);letter-spacing:1px;margin-top:1px;margin-bottom:8px;}
+.ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+.ov-item{font-size:10px;font-family:monospace;}
+.ov-lbl{color:var(--muted);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-badge">TN CRIME</div>
+    <div><div class="logo-title">Tamil Nadu Crime Hotspot Map</div><div class="logo-sub">9 Districts · 121 Areas · Real Data</div></div>
+  </div>
+  <div class="hdr-stats">
+    <div class="hdr-stat"><div class="hdr-stat-val">9</div><div class="hdr-stat-label">Districts</div></div>
+    <div class="hdr-stat"><div class="hdr-stat-val">121</div><div class="hdr-stat-label">Areas</div></div>
+    <div class="hdr-stat"><div class="hdr-stat-val" id="hdrTotal">2200</div><div class="hdr-stat-label">Incidents</div></div>
+  </div>
+</header>
+
+<div class="main">
+  <div class="sidebar">
+    <div class="sb-section">
+      <div class="sb-label">Search District</div>
+      <div style="position:relative;">
+        <input type="text" id="searchInput" placeholder="Type district name...">
+        <div class="dd" id="dd"></div>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-label">Crime Type Filter</div>
+      <div class="chips" id="chips">
+        <button class="chip on" data-c="total">All</button>
+        <button class="chip" data-c="Theft">Theft</button>
+        <button class="chip" data-c="Burglary">Burglary</button>
+        <button class="chip" data-c="Robbery">Robbery</button>
+        <button class="chip" data-c="Assault">Assault</button>
+        <button class="chip" data-c="Vehicle Theft">Vehicle</button>
+        <button class="chip" data-c="Fraud">Fraud</button>
+        <button class="chip" data-c="Cyber Crime">Cyber</button>
+      </div>
+    </div>
+
+    <div class="dist-list" id="distList">
+      <div class="list-hdr">ALL DISTRICTS — RANKED BY TOTAL</div>
+    </div>
+
+    <div class="info-box" id="infoBox"><div class="no-sel">← Select a district to view details</div></div>
+
+    <div class="legend">
+      <div class="sb-label">Heatmap Intensity</div>
+      <div class="leg-bar"></div>
+      <div class="leg-ends"><span>LOW</span><span>HIGH</span></div>
+    </div>
+  </div>
+
+  <div style="position:relative;flex:1;height:100%;min-height:0;overflow:hidden;">
+    <div id="map"></div>
+    <div class="overlay" id="overlay"><div class="no-sel" style="font-size:11px;">Select a district</div></div>
+  </div>
+</div>
+
+<!-- Leaflet JS from cdnjs (more reliable than unpkg) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────
+const D = {"Chennai":{"lat":13.0402,"lon":80.2074,"total":265,"areas":[{"name":"Adyar","lat":13.0005,"lon":80.2585,"total":10,"Theft":3,"Burglary":0,"Robbery":0,"Assault":6,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":1},{"name":"Ambattur","lat":13.1144,"lon":80.1545,"total":9,"Theft":5,"Burglary":0,"Robbery":2,"Assault":2,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":0},{"name":"Anna Nagar","lat":13.0854,"lon":80.21,"total":13,"Theft":3,"Burglary":2,"Robbery":0,"Assault":5,"Vehicle Theft":1,"Fraud":1,"Cyber Crime":1},{"name":"Avadi","lat":13.1143,"lon":80.0998,"total":18,"Theft":5,"Burglary":4,"Robbery":0,"Assault":6,"Vehicle Theft":2,"Fraud":1,"Cyber Crime":0},{"name":"Chromepet","lat":12.9515,"lon":80.1445,"total":9,"Theft":4,"Burglary":0,"Robbery":0,"Assault":4,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":1},{"name":"Egmore","lat":13.073,"lon":80.2642,"total":14,"Theft":2,"Burglary":2,"Robbery":0,"Assault":8,"Vehicle Theft":2,"Fraud":0,"Cyber Crime":0},{"name":"Guindy","lat":13.0072,"lon":80.2218,"total":13,"Theft":2,"Burglary":1,"Robbery":0,"Assault":7,"Vehicle Theft":1,"Fraud":1,"Cyber Crime":1},{"name":"Kodambakkam","lat":13.0517,"lon":80.2229,"total":12,"Theft":3,"Burglary":0,"Robbery":0,"Assault":7,"Vehicle Theft":0,"Fraud":1,"Cyber Crime":1},{"name":"Kolathur","lat":13.1205,"lon":80.2171,"total":15,"Theft":3,"Burglary":0,"Robbery":0,"Assault":9,"Vehicle Theft":2,"Fraud":1,"Cyber Crime":0},{"name":"Manali","lat":13.1685,"lon":80.2603,"total":12,"Theft":4,"Burglary":0,"Robbery":1,"Assault":6,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":1},{"name":"Mylapore","lat":13.0373,"lon":80.2683,"total":11,"Theft":4,"Burglary":0,"Robbery":0,"Assault":7,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":0},{"name":"Nungambakkam","lat":13.062,"lon":80.2426,"total":11,"Theft":0,"Burglary":1,"Robbery":0,"Assault":10,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":0},{"name":"Pallavaram","lat":12.9688,"lon":80.1485,"total":10,"Theft":1,"Burglary":0,"Robbery":0,"Assault":5,"Vehicle Theft":2,"Fraud":0,"Cyber Crime":2},{"name":"Perambur","lat":13.116,"lon":80.233,"total":19,"Theft":4,"Burglary":1,"Robbery":0,"Assault":11,"Vehicle Theft":2,"Fraud":1,"Cyber Crime":0},{"name":"Porur","lat":13.0353,"lon":80.159,"total":11,"Theft":4,"Burglary":0,"Robbery":1,"Assault":6,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":0},{"name":"Royapettah","lat":13.0522,"lon":80.2607,"total":13,"Theft":3,"Burglary":0,"Robbery":0,"Assault":5,"Vehicle Theft":2,"Fraud":1,"Cyber Crime":2},{"name":"Sholinganallur","lat":12.9009,"lon":80.2282,"total":15,"Theft":2,"Burglary":1,"Robbery":0,"Assault":9,"Vehicle Theft":0,"Fraud":3,"Cyber Crime":0},{"name":"T Nagar","lat":13.0412,"lon":80.2337,"total":17,"Theft":10,"Burglary":1,"Robbery":0,"Assault":4,"Vehicle Theft":1,"Fraud":1,"Cyber Crime":0},{"name":"Tambaram","lat":12.923,"lon":80.1003,"total":15,"Theft":3,"Burglary":0,"Robbery":0,"Assault":10,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":1},{"name":"Velachery","lat":12.9793,"lon":80.2195,"total":18,"Theft":3,"Burglary":0,"Robbery":0,"Assault":10,"Vehicle Theft":0,"Fraud":1,"Cyber Crime":4}]},"Coimbatore":{"lat":11.0042,"lon":76.9813,"total":230,"areas":[{"name":"Ganapathy","lat":11.0385,"lon":76.9867,"total":14,"Theft":3,"Burglary":0,"Robbery":0,"Assault":8,"Vehicle Theft":2,"Fraud":0,"Cyber Crime":1},{"name":"Gandhipuram","lat":11.0172,"lon":76.9715,"total":19,"Theft":3,"Burglary":1,"Robbery":2,"Assault":10,"Vehicle Theft":3,"Fraud":0,"Cyber Crime":0},{"name":"Kovaipudur","lat":10.9602,"lon":76.9395,"total":13,"Theft":0,"Burglary":1,"Robbery":1,"Assault":8,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":3},{"name":"Kuniyamuthur","lat":10.9668,"lon":76.948,"total":14,"Theft":1,"Burglary":0,"Robbery":1,"Assault":9,"Vehicle Theft":3,"Fraud":0,"Cyber Crime":0},{"name":"Ondipudur","lat":10.9805,"lon":77.0422,"total":12,"Theft":2,"Burglary":2,"Robbery":0,"Assault":6,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":1},{"name":"Peelamedu","lat":11.0246,"lon":77.0293,"total":19,"Theft":4,"Burglary":1,"Robbery":0,"Assault":10,"Vehicle Theft":3,"Fraud":1,"Cyber Crime":0},{"name":"Podanur","lat":10.9676,"lon":76.9823,"total":17,"Theft":4,"Burglary":3,"Robbery":0,"Assault":5,"Vehicle Theft":2,"Fraud":1,"Cyber Crime":2},{"name":"RS Puram","lat":11.0098,"lon":76.9537,"total":14,"Theft":4,"Burglary":1,"Robbery":0,"Assault":8,"Vehicle Theft":0,"Fraud":1,"Cyber Crime":0},{"name":"Ramanathapuram","lat":11.0057,"lon":76.9969,"total":12,"Theft":3,"Burglary":1,"Robbery":1,"Assault":6,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":1},{"name":"Saibaba Colony","lat":11.0276,"lon":76.9525,"total":17,"Theft":4,"Burglary":1,"Robbery":0,"Assault":10,"Vehicle Theft":0,"Fraud":1,"Cyber Crime":1},{"name":"Singanallur","lat":10.9889,"lon":77.021,"total":16,"Theft":4,"Burglary":1,"Robbery":0,"Assault":5,"Vehicle Theft":2,"Fraud":2,"Cyber Crime":2},{"name":"Sulur","lat":11.0395,"lon":77.1203,"total":15,"Theft":3,"Burglary":0,"Robbery":0,"Assault":11,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":0},{"name":"Thondamuthur","lat":11.0041,"lon":76.888,"total":9,"Theft":1,"Burglary":1,"Robbery":1,"Assault":4,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":1},{"name":"Ukkadam","lat":10.9996,"lon":76.9673,"total":22,"Theft":1,"Burglary":2,"Robbery":1,"Assault":14,"Vehicle Theft":0,"Fraud":2,"Cyber Crime":2},{"name":"Vadavalli","lat":11.0318,"lon":76.921,"total":17,"Theft":6,"Burglary":1,"Robbery":0,"Assault":7,"Vehicle Theft":0,"Fraud":2,"Cyber Crime":1}]},"Dindigul":{"lat":10.3848,"lon":77.8873,"total":223,"areas":[{"name":"Batlagundu","lat":10.1645,"lon":77.7581,"total":17,"Theft":4,"Burglary":0,"Robbery":0,"Assault":10,"Vehicle Theft":1,"Fraud":1,"Cyber Crime":1},{"name":"Begampur","lat":10.3859,"lon":77.953,"total":23,"Theft":2,"Burglary":5,"Robbery":1,"Assault":11,"Vehicle Theft":2,"Fraud":2,"Cyber Crime":0},{"name":"Chinnalapatti","lat":10.4061,"lon":77.9213,"total":15,"Theft":2,"Burglary":2,"Robbery":0,"Assault":10,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":1},{"name":"Dindigul Town","lat":10.3681,"lon":77.9799,"total":15,"Theft":3,"Burglary":2,"Robbery":0,"Assault":8,"Vehicle Theft":1,"Fraud":1,"Cyber Crime":0},{"name":"Gandhi Nagar","lat":10.37,"lon":77.9889,"total":18,"Theft":3,"Burglary":2,"Robbery":0,"Assault":7,"Vehicle Theft":3,"Fraud":1,"Cyber Crime":2},{"name":"Natham","lat":10.4745,"lon":78.0815,"total":22,"Theft":6,"Burglary":3,"Robbery":1,"Assault":10,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":1},{"name":"Oddanchatram","lat":10.4846,"lon":77.7464,"total":21,"Theft":4,"Burglary":2,"Robbery":2,"Assault":11,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":1},{"name":"Palani","lat":10.4487,"lon":77.5267,"total":20,"Theft":7,"Burglary":2,"Robbery":0,"Assault":10,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":1},{"name":"Reddiarchatram","lat":10.3218,"lon":77.8756,"total":16,"Theft":4,"Burglary":0,"Robbery":0,"Assault":11,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":1},{"name":"Shanarpatti","lat":10.3545,"lon":77.9233,"total":20,"Theft":2,"Burglary":0,"Robbery":0,"Assault":13,"Vehicle Theft":3,"Fraud":2,"Cyber Crime":0},{"name":"Sirumalai","lat":10.3028,"lon":77.937,"total":18,"Theft":4,"Burglary":0,"Robbery":0,"Assault":11,"Vehicle Theft":2,"Fraud":0,"Cyber Crime":1},{"name":"Vedasandur","lat":10.5357,"lon":77.9557,"total":18,"Theft":1,"Burglary":0,"Robbery":1,"Assault":13,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":2}]},"Erode":{"lat":11.3691,"lon":77.6292,"total":233,"areas":[{"name":"Bhavani","lat":11.4467,"lon":77.6841,"total":22,"Theft":6,"Burglary":0,"Robbery":0,"Assault":11,"Vehicle Theft":3,"Fraud":1,"Cyber Crime":1},{"name":"Chennimalai","lat":11.2996,"lon":77.6029,"total":22,"Theft":7,"Burglary":2,"Robbery":2,"Assault":7,"Vehicle Theft":2,"Fraud":0,"Cyber Crime":2},{"name":"Erode Central","lat":11.3408,"lon":77.7153,"total":18,"Theft":4,"Burglary":2,"Robbery":0,"Assault":10,"Vehicle Theft":1,"Fraud":1,"Cyber Crime":0},{"name":"Gobichettipalayam","lat":11.4577,"lon":77.3536,"total":13,"Theft":4,"Burglary":2,"Robbery":2,"Assault":4,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":0},{"name":"Kasipalayam","lat":11.3262,"lon":77.7067,"total":23,"Theft":6,"Burglary":0,"Robbery":0,"Assault":14,"Vehicle Theft":0,"Fraud":2,"Cyber Crime":1},{"name":"Kavundampalayam","lat":11.4056,"lon":77.7215,"total":20,"Theft":5,"Burglary":2,"Robbery":0,"Assault":12,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":1},{"name":"Perundurai","lat":11.273,"lon":77.583,"total":15,"Theft":3,"Burglary":0,"Robbery":1,"Assault":10,"Vehicle Theft":0,"Fraud":1,"Cyber Crime":0},{"name":"Sathyamangalam","lat":11.502,"lon":77.236,"total":19,"Theft":2,"Burglary":0,"Robbery":1,"Assault":14,"Vehicle Theft":1,"Fraud":1,"Cyber Crime":0},{"name":"Sipcot","lat":11.3144,"lon":77.7547,"total":22,"Theft":4,"Burglary":1,"Robbery":0,"Assault":13,"Vehicle Theft":0,"Fraud":1,"Cyber Crime":3},{"name":"Surampatti","lat":11.3568,"lon":77.7412,"total":15,"Theft":2,"Burglary":1,"Robbery":0,"Assault":10,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":1},{"name":"Thindal","lat":11.3237,"lon":77.7368,"total":20,"Theft":2,"Burglary":0,"Robbery":2,"Assault":11,"Vehicle Theft":0,"Fraud":2,"Cyber Crime":3},{"name":"Veerappampalayam","lat":11.3832,"lon":77.7148,"total":24,"Theft":5,"Burglary":2,"Robbery":0,"Assault":14,"Vehicle Theft":1,"Fraud":1,"Cyber Crime":1}]},"Madurai":{"lat":9.9235,"lon":78.1234,"total":255,"areas":[{"name":"Anna Nagar","lat":9.9223,"lon":78.1202,"total":9,"Theft":0,"Burglary":0,"Robbery":0,"Assault":5,"Vehicle Theft":2,"Fraud":0,"Cyber Crime":2},{"name":"Arasaradi","lat":9.9418,"lon":78.1375,"total":18,"Theft":4,"Burglary":2,"Robbery":0,"Assault":9,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":2},{"name":"Goripalayam","lat":9.9148,"lon":78.1241,"total":18,"Theft":2,"Burglary":2,"Robbery":2,"Assault":8,"Vehicle Theft":2,"Fraud":2,"Cyber Crime":0},{"name":"Iyer Bungalow","lat":9.9384,"lon":78.1253,"total":24,"Theft":7,"Burglary":1,"Robbery":1,"Assault":13,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":2},{"name":"Kalavasal","lat":9.9186,"lon":78.1461,"total":18,"Theft":4,"Burglary":0,"Robbery":2,"Assault":9,"Vehicle Theft":2,"Fraud":1,"Cyber Crime":0},{"name":"Koodal Nagar","lat":9.9038,"lon":78.1176,"total":15,"Theft":3,"Burglary":0,"Robbery":1,"Assault":10,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":1},{"name":"Mattuthavani","lat":9.9583,"lon":78.1186,"total":14,"Theft":1,"Burglary":2,"Robbery":0,"Assault":10,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":0},{"name":"Othakadai","lat":9.9068,"lon":78.0941,"total":18,"Theft":3,"Burglary":1,"Robbery":1,"Assault":10,"Vehicle Theft":2,"Fraud":0,"Cyber Crime":1},{"name":"Palanganatham","lat":9.8917,"lon":78.127,"total":18,"Theft":1,"Burglary":2,"Robbery":2,"Assault":9,"Vehicle Theft":2,"Fraud":1,"Cyber Crime":1},{"name":"SS Colony","lat":9.91,"lon":78.1013,"total":23,"Theft":6,"Burglary":0,"Robbery":0,"Assault":15,"Vehicle Theft":0,"Fraud":1,"Cyber Crime":1},{"name":"Tallakulam","lat":9.9341,"lon":78.1099,"total":20,"Theft":2,"Burglary":1,"Robbery":1,"Assault":13,"Vehicle Theft":1,"Fraud":1,"Cyber Crime":1},{"name":"Teppakulam","lat":9.9242,"lon":78.1313,"total":21,"Theft":4,"Burglary":1,"Robbery":0,"Assault":13,"Vehicle Theft":1,"Fraud":2,"Cyber Crime":0},{"name":"Vilangudi","lat":9.9624,"lon":78.1375,"total":24,"Theft":6,"Burglary":2,"Robbery":0,"Assault":12,"Vehicle Theft":1,"Fraud":2,"Cyber Crime":1},{"name":"Visalakshi Nagar","lat":9.9015,"lon":78.1366,"total":15,"Theft":5,"Burglary":1,"Robbery":1,"Assault":6,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":2}]},"Salem":{"lat":11.6625,"lon":78.1875,"total":247,"areas":[{"name":"Alagapuram","lat":11.6731,"lon":78.1619,"total":23,"Theft":4,"Burglary":3,"Robbery":0,"Assault":13,"Vehicle Theft":0,"Fraud":2,"Cyber Crime":1},{"name":"Ammapet","lat":11.6822,"lon":78.1422,"total":19,"Theft":4,"Burglary":2,"Robbery":1,"Assault":12,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":0},{"name":"Attur","lat":11.5977,"lon":78.6006,"total":15,"Theft":4,"Burglary":0,"Robbery":1,"Assault":10,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":0},{"name":"Fairlands","lat":11.6618,"lon":78.1592,"total":28,"Theft":6,"Burglary":1,"Robbery":1,"Assault":16,"Vehicle Theft":1,"Fraud":1,"Cyber Crime":2},{"name":"Hasthampatti","lat":11.6571,"lon":78.1355,"total":16,"Theft":3,"Burglary":0,"Robbery":2,"Assault":7,"Vehicle Theft":0,"Fraud":3,"Cyber Crime":1},{"name":"Karuppur","lat":11.6937,"lon":78.1272,"total":23,"Theft":8,"Burglary":1,"Robbery":1,"Assault":10,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":2},{"name":"Kondalampatti","lat":11.6405,"lon":78.2135,"total":19,"Theft":5,"Burglary":2,"Robbery":0,"Assault":8,"Vehicle Theft":3,"Fraud":1,"Cyber Crime":0},{"name":"Old Suramangalam","lat":11.6442,"lon":78.1633,"total":26,"Theft":6,"Burglary":2,"Robbery":0,"Assault":17,"Vehicle Theft":0,"Fraud":1,"Cyber Crime":0},{"name":"Omalur","lat":11.737,"lon":78.0403,"total":19,"Theft":3,"Burglary":0,"Robbery":0,"Assault":14,"Vehicle Theft":2,"Fraud":0,"Cyber Crime":0},{"name":"Shevapet","lat":11.664,"lon":78.1584,"total":25,"Theft":3,"Burglary":3,"Robbery":1,"Assault":14,"Vehicle Theft":0,"Fraud":2,"Cyber Crime":2},{"name":"Suramangalam","lat":11.6513,"lon":78.1694,"total":13,"Theft":4,"Burglary":1,"Robbery":0,"Assault":3,"Vehicle Theft":1,"Fraud":3,"Cyber Crime":1},{"name":"Swarnapuri","lat":11.6473,"lon":78.1788,"total":21,"Theft":7,"Burglary":0,"Robbery":0,"Assault":12,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":1}]},"Tiruchirappalli":{"lat":10.8341,"lon":78.7026,"total":217,"areas":[{"name":"Ariyamangalam","lat":10.8377,"lon":78.7468,"total":15,"Theft":1,"Burglary":0,"Robbery":1,"Assault":11,"Vehicle Theft":2,"Fraud":0,"Cyber Crime":0},{"name":"K K Nagar","lat":10.8045,"lon":78.6797,"total":15,"Theft":2,"Burglary":1,"Robbery":0,"Assault":10,"Vehicle Theft":0,"Fraud":1,"Cyber Crime":1},{"name":"Kattur","lat":10.8763,"lon":78.7306,"total":20,"Theft":2,"Burglary":2,"Robbery":0,"Assault":10,"Vehicle Theft":2,"Fraud":2,"Cyber Crime":2},{"name":"Mannarpuram","lat":10.8025,"lon":78.6747,"total":23,"Theft":4,"Burglary":1,"Robbery":0,"Assault":13,"Vehicle Theft":3,"Fraud":0,"Cyber Crime":2},{"name":"Palakkarai","lat":10.8185,"lon":78.6876,"total":19,"Theft":9,"Burglary":0,"Robbery":0,"Assault":8,"Vehicle Theft":0,"Fraud":1,"Cyber Crime":1},{"name":"Ponmalai","lat":10.8449,"lon":78.7117,"total":18,"Theft":6,"Burglary":0,"Robbery":1,"Assault":7,"Vehicle Theft":3,"Fraud":1,"Cyber Crime":0},{"name":"Puthur","lat":10.7956,"lon":78.7013,"total":18,"Theft":10,"Burglary":1,"Robbery":0,"Assault":4,"Vehicle Theft":0,"Fraud":3,"Cyber Crime":0},{"name":"Somarasampettai","lat":10.8856,"lon":78.6742,"total":20,"Theft":5,"Burglary":0,"Robbery":1,"Assault":11,"Vehicle Theft":2,"Fraud":0,"Cyber Crime":1},{"name":"Srirangam","lat":10.8645,"lon":78.6878,"total":18,"Theft":0,"Burglary":0,"Robbery":0,"Assault":16,"Vehicle Theft":1,"Fraud":1,"Cyber Crime":0},{"name":"Thillai Nagar","lat":10.8152,"lon":78.6915,"total":19,"Theft":3,"Burglary":1,"Robbery":1,"Assault":12,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":2},{"name":"Thiruverumbur","lat":10.811,"lon":78.756,"total":13,"Theft":2,"Burglary":0,"Robbery":0,"Assault":9,"Vehicle Theft":2,"Fraud":0,"Cyber Crime":0},{"name":"Woraiyur","lat":10.8532,"lon":78.6891,"total":19,"Theft":2,"Burglary":1,"Robbery":0,"Assault":12,"Vehicle Theft":2,"Fraud":2,"Cyber Crime":0}]},"Tiruppur":{"lat":11.0638,"lon":77.3739,"total":256,"areas":[{"name":"Anupparpalayam","lat":11.1031,"lon":77.3691,"total":16,"Theft":4,"Burglary":1,"Robbery":0,"Assault":9,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":2},{"name":"Avinashi","lat":11.1942,"lon":77.2691,"total":13,"Theft":1,"Burglary":2,"Robbery":0,"Assault":8,"Vehicle Theft":0,"Fraud":2,"Cyber Crime":0},{"name":"Dharapuram","lat":10.7321,"lon":77.513,"total":24,"Theft":6,"Burglary":4,"Robbery":2,"Assault":10,"Vehicle Theft":1,"Fraud":1,"Cyber Crime":0},{"name":"Kangeyam","lat":11.0064,"lon":77.5606,"total":21,"Theft":3,"Burglary":2,"Robbery":1,"Assault":11,"Vehicle Theft":1,"Fraud":2,"Cyber Crime":1},{"name":"Kumaran Road","lat":11.1061,"lon":77.3404,"total":25,"Theft":3,"Burglary":3,"Robbery":0,"Assault":12,"Vehicle Theft":0,"Fraud":4,"Cyber Crime":3},{"name":"Mangalam","lat":11.0768,"lon":77.3217,"total":18,"Theft":4,"Burglary":2,"Robbery":0,"Assault":10,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":1},{"name":"Palladam","lat":10.9985,"lon":77.2843,"total":24,"Theft":5,"Burglary":0,"Robbery":1,"Assault":12,"Vehicle Theft":3,"Fraud":0,"Cyber Crime":3},{"name":"Rayapuram","lat":11.1123,"lon":77.3564,"total":27,"Theft":8,"Burglary":1,"Robbery":2,"Assault":12,"Vehicle Theft":1,"Fraud":1,"Cyber Crime":2},{"name":"Selvapuram","lat":11.0891,"lon":77.3523,"total":23,"Theft":4,"Burglary":2,"Robbery":2,"Assault":11,"Vehicle Theft":2,"Fraud":2,"Cyber Crime":0},{"name":"Tiruppur Central","lat":11.1089,"lon":77.3412,"total":22,"Theft":3,"Burglary":2,"Robbery":0,"Assault":16,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":1},{"name":"Uthukuli","lat":11.1748,"lon":77.4003,"total":17,"Theft":1,"Burglary":1,"Robbery":1,"Assault":13,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":0},{"name":"Veerapandi","lat":11.0631,"lon":77.3782,"total":26,"Theft":7,"Burglary":1,"Robbery":2,"Assault":13,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":2}]},"Vellore":{"lat":12.9385,"lon":79.1889,"total":274,"areas":[{"name":"Anaicut","lat":12.9907,"lon":79.2337,"total":17,"Theft":3,"Burglary":3,"Robbery":1,"Assault":7,"Vehicle Theft":0,"Fraud":1,"Cyber Crime":2},{"name":"Arcot","lat":12.9042,"lon":79.3103,"total":22,"Theft":5,"Burglary":1,"Robbery":0,"Assault":13,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":2},{"name":"Ariyur","lat":12.9578,"lon":79.1746,"total":27,"Theft":6,"Burglary":1,"Robbery":3,"Assault":15,"Vehicle Theft":1,"Fraud":1,"Cyber Crime":0},{"name":"Bagayam","lat":12.9185,"lon":79.13,"total":21,"Theft":3,"Burglary":2,"Robbery":1,"Assault":12,"Vehicle Theft":0,"Fraud":0,"Cyber Crime":3},{"name":"Kaniyambadi","lat":12.9559,"lon":79.1911,"total":20,"Theft":3,"Burglary":1,"Robbery":0,"Assault":14,"Vehicle Theft":0,"Fraud":2,"Cyber Crime":0},{"name":"Katpadi","lat":12.9711,"lon":79.1432,"total":26,"Theft":4,"Burglary":2,"Robbery":2,"Assault":16,"Vehicle Theft":2,"Fraud":0,"Cyber Crime":0},{"name":"Ranipet","lat":12.9244,"lon":79.3337,"total":12,"Theft":2,"Burglary":1,"Robbery":1,"Assault":6,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":1},{"name":"Sainathapuram","lat":12.946,"lon":79.1213,"total":24,"Theft":4,"Burglary":3,"Robbery":0,"Assault":16,"Vehicle Theft":1,"Fraud":0,"Cyber Crime":0},{"name":"Sathuvachari","lat":12.9354,"lon":79.1586,"total":30,"Theft":6,"Burglary":5,"Robbery":0,"Assault":11,"Vehicle Theft":1,"Fraud":4,"Cyber Crime":3},{"name":"Shenbakkam","lat":12.9085,"lon":79.1441,"total":29,"Theft":5,"Burglary":0,"Robbery":2,"Assault":17,"Vehicle Theft":3,"Fraud":2,"Cyber Crime":0},{"name":"Thorapadi","lat":12.9289,"lon":79.1689,"total":16,"Theft":3,"Burglary":0,"Robbery":1,"Assault":9,"Vehicle Theft":3,"Fraud":0,"Cyber Crime":0},{"name":"Vellore Fort","lat":12.9209,"lon":79.1573,"total":30,"Theft":9,"Burglary":1,"Robbery":2,"Assault":12,"Vehicle Theft":1,"Fraud":1,"Cyber Crime":4}]}};
+
+const CT = ['Theft','Burglary','Robbery','Assault','Vehicle Theft','Fraud','Cyber Crime'];
+const CC = {'Theft':'#f85149','Burglary':'#d29922','Robbery':'#f0883e','Assault':'#ff7eb6','Vehicle Theft':'#58a6ff','Fraud':'#bc8cff','Cyber Crime':'#3fb950'};
+
+let activeCrime = 'total', activeDist = null, circles = [], heatCircles = [];
+
+// ── INIT MAP ───────────────────────────────────────────────────
+const map = L.map('map', {zoomControl: true}).setView([10.8, 78.0], 7);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  maxZoom: 19
+}).addTo(map);
+
+// ── DISTRICT LIST ──────────────────────────────────────────────
+const listEl = document.getElementById('distList');
+Object.entries(D).sort((a,b)=>b[1].total-a[1].total).forEach(([name,d])=>{
+  const btn = document.createElement('button');
+  btn.className='dist-btn'; btn.dataset.n=name;
+  btn.innerHTML=`<span>${name}</span><span class="badge">${d.total}</span>`;
+  btn.onclick=()=>pick(name);
+  listEl.appendChild(btn);
+});
+
+// ── SEARCH ─────────────────────────────────────────────────────
+const si=document.getElementById('searchInput'), dd=document.getElementById('dd');
+si.oninput=()=>{
+  const q=si.value.toLowerCase().trim(); dd.innerHTML='';
+  if(!q){dd.classList.remove('open');return;}
+  const m=Object.keys(D).filter(n=>n.toLowerCase().includes(q));
+  if(!m.length){dd.classList.remove('open');return;}
+  m.forEach(name=>{
+    const el=document.createElement('div'); el.className='dd-item';
+    el.innerHTML=`<div class="dd-dot"></div>${name}`;
+    el.onclick=()=>{pick(name);si.value='';dd.classList.remove('open');};
+    dd.appendChild(el);
+  });
+  dd.classList.add('open');
+};
+document.addEventListener('click',e=>{if(!e.target.closest('#searchInput')&&!e.target.closest('#dd'))dd.classList.remove('open');});
+
+// ── CHIPS ──────────────────────────────────────────────────────
+document.getElementById('chips').onclick=e=>{
+  const c=e.target.closest('.chip'); if(!c)return;
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+  c.classList.add('on'); activeCrime=c.dataset.c;
+  if(activeDist)renderMarkers(activeDist);
+};
+
+// ── PICK DISTRICT ──────────────────────────────────────────────
+function pick(name){
+  activeDist=name;
+  document.querySelectorAll('.dist-btn').forEach(b=>b.classList.toggle('on',b.dataset.n===name));
+  document.querySelector(`.dist-btn[data-n="${name}"]`)?.scrollIntoView({block:'nearest',behavior:'smooth'});
+  renderMarkers(name);
+  updateInfo(name);
+  updateOverlay(name);
+  const d=D[name];
+  map.flyTo([d.lat,d.lon],12,{duration:1.5});
+}
+
+function gv(a,c){return c==='total'?a.total:(a[c]||0);}
+
+function renderMarkers(name){
+  // clear old
+  circles.forEach(c=>map.removeLayer(c));
+  heatCircles.forEach(c=>map.removeLayer(c));
+  circles=[]; heatCircles=[];
+
+  const d=D[name];
+  const vals=d.areas.map(a=>gv(a,activeCrime));
+  const mx=Math.max(...vals,1);
+
+  d.areas.forEach(area=>{
+    const v=gv(area,activeCrime), ratio=v/mx;
+    const col=ratio>0.7?'#f85149':ratio>0.4?'#d29922':ratio>0.15?'#58a6ff':'#3fb950';
+    const r=Math.max(150,ratio*600); // metres radius
+
+    // Heat glow circle
+    const heat=L.circle([area.lat,area.lon],{
+      radius:r*2.5, color:'transparent',
+      fillColor:col, fillOpacity:0.15, interactive:false
+    }).addTo(map);
+    heatCircles.push(heat);
+
+    // Main marker circle
+    const circ=L.circle([area.lat,area.lon],{
+      radius:r, color:col, weight:2,
+      fillColor:col, fillOpacity:0.55
+    }).bindPopup(buildPopup(area), {maxWidth:230}).addTo(map);
+    circles.push(circ);
+  });
+}
+
+function buildPopup(a){
+  const rows=CT.map(c=>`
+    <div style="display:flex;justify-content:space-between;font-size:10px;font-family:monospace;margin-bottom:2px;">
+      <span style="color:#8b949e">${c}</span>
+      <span style="color:${CC[c]};font-weight:700">${a[c]}</span>
+    </div>`).join('');
+  return `<div style="font-family:system-ui;min-width:165px;">
+    <div style="font-weight:700;font-size:14px;margin-bottom:3px;">${a.name}</div>
+    <div style="font-size:11px;color:#f85149;font-family:monospace;margin-bottom:8px;">Total: ${a.total} incidents</div>
+    ${rows}
+  </div>`;
+}
+
+function updateInfo(name){
+  const d=D[name];
+  const top=d.areas.reduce((m,a)=>a.total>m.total?a:m);
+  const cs=ct=>d.areas.reduce((s,a)=>s+(a[ct]||0),0);
+  const dom=CT.reduce((m,c)=>cs(c)>cs(m)?c:m,CT[0]);
+  const bars=CT.map(ct=>{
+    const v=cs(ct),pct=Math.round(v/d.total*100);
+    return `<div class="bar-row">
+      <div class="bar-lbl"><span>${ct}</span><span>${v}</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${CC[ct]};"></div></div>
+    </div>`;
+  }).join('');
+  document.getElementById('infoBox').innerHTML=`
+    <div class="info-title">${name}</div>
+    <div class="info-row"><span>TOTAL</span><span>${d.total}</span></div>
+    <div class="info-row"><span>AREAS</span><span>${d.areas.length}</span></div>
+    <div class="info-row"><span>TOP AREA</span><span>${top.name}</span></div>
+    <div class="info-row"><span>DOMINANT</span><span>${dom}</span></div>
+    <div class="bars">${bars}</div>`;
+}
+
+function updateOverlay(name){
+  const d=D[name];
+  const cs=ct=>d.areas.reduce((s,a)=>s+(a[ct]||0),0);
+  const grid=CT.map(ct=>`<div class="ov-item"><span class="ov-lbl">${ct.split(' ')[0]}: </span><span style="color:${CC[ct]};font-weight:700">${cs(ct)}</span></div>`).join('');
+  document.getElementById('overlay').innerHTML=`
+    <div class="ov-name">${name}</div>
+    <div class="ov-total">${d.total}</div>
+    <div class="ov-sub">TOTAL INCIDENTS · ${d.areas.length} AREAS</div>
+    <div class="ov-grid">${grid}</div>`;
+}
+
+// ── HEADER TOTAL ───────────────────────────────────────────────
+document.getElementById('hdrTotal').textContent =
+  Object.values(D).reduce((s,d)=>s+d.total,0);
+
+// Force map to re-render after layout settles
+setTimeout(()=>map.invalidateSize(), 200);
+</script>
+</body>
+</html>
